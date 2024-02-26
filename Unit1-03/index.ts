@@ -8,50 +8,63 @@
 import { createPrompt } from 'bun-promptx' 
 
 
-const subPizzaOrSoup = createPrompt("Are you heating sub, pizza, or soup?: ");
-const numberOfFoodString = createPrompt(`How many ${subPizzaOrSoup}(s) are you cooking? (max:3): `);
+const subPizzaOrSoup = createPrompt("Are you heating sub, pizza, or soup?: ")
+const numberOfFoodString = createPrompt(`How many ${subPizzaOrSoup.value}(s) are you cooking? (max:3): `)
 
 // Error checking
-const numberOfFood = parseFloat(numberOfFoodString.value || "-1");
+const numberOfFood = parseInt(numberOfFoodString.value)
 
 // Process
-let time;
+let minute: number | 0 = 0
+let second: number | 0 = 0
 
-if (subPizzaOrSoup === "sub") {
-	if (numberOfFood === 1)
-		time = 1;
-        else if (numberOfFood === 2)
-		time = 1.5;
-        else if (numberOfFood === 3)
-		time = 2;
-        else
-		console.log("Invalid input");
-} else if (subPizzaOrSoup === "pizza") {
-	if (numberOfFood === 1)
-		time = 0.45;
-	else if (numberOfFood === 2)
-		time = 1.08;
-	else if (numberOfFood === 3)
-		time = 1.30;
-	else
-		console.log("Invalid input");
-} else if (subPizzaOrSoup === "soup") {
-	if (numberOfFood === 1)
-		time = 1.45;
-	else if (numberOfFood === 2)
-		time = 2.18;
-	else if (numberOfFood === 3)
-		time = 3.30;
-	else
-		console.log("Invalid input");
+if (subPizzaOrSoup.value === "sub") {
+	if (numberOfFood === 1) {
+		minute = 1
+	        second = 0
+	} else if (numberOfFood === 2) {
+		minute = 1
+	        second = 30
+	} else if (numberOfFood === 3) {
+		minute = 2
+	        second = 0
+	} else {
+		console.log("Invalid input -1")
+	}
+} else if (subPizzaOrSoup.value === "pizza") {
+	if (numberOfFood === 1) {
+		minute = 0
+	        second = 45
+	} else if (numberOfFood === 2) {
+		minute = 1
+	        second = 8
+	} else if (numberOfFood === 3) {
+		minute = 1
+	        second = 20
+	} else {
+		console.log("Invalid input -2")
+	}
+} else if (subPizzaOrSoup.value === "soup") {
+	if (numberOfFood === 1) {
+		minute = 1
+	        second = 45
+	} else if (numberOfFood === 2) {
+		minute = 2
+	        second = 18
+	} else if (numberOfFood === 3) {
+		minute = 3
+	        second = 20
+	} else {
+		console.log("Invalid input -3")
+	}
 } else {
-	console.log("Invalid Input");
+	console.log("Invalid Input - last")
 }
 // Output
-if (time !== undefined) {
-	console.log(`The total cook time is ${time} minutes.`);
-} else {
-	console.log("Cook time could not be determined.");
+
+   if (minute !== 0  && second !== 0) {
+	   console.log(`The total cook time is ${minute} minutes and ${second} seconds.`)
 }
+
 console.log("\nDone.");
 
