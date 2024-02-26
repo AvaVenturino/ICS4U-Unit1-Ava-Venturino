@@ -15,8 +15,8 @@ const numberOfFoodString = createPrompt(`How many ${subPizzaOrSoup.value}(s) are
 const numberOfFood = parseInt(numberOfFoodString.value)
 
 // Process
-let minute: number | undefined
-let second: number | undefined
+let minute = number | undefined
+let second = number | undefined
 
 if (subPizzaOrSoup.value === "sub") {
   if (numberOfFood === 1) {
@@ -63,8 +63,8 @@ if (subPizzaOrSoup.value === "sub") {
 // Output
 
 if (minute !== undefined || second !== undefined) {
-	console.log(`The total cook time is ${minute} minutes and ${second} seconds.`)
+  console.log(`The total cook time is ${minute} minutes and ${second} seconds.`)
 }
 
-console.log("\nDone.");
+console.log("\nDone.")
 
