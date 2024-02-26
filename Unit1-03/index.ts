@@ -15,8 +15,8 @@ const numberOfFoodString = createPrompt(`How many ${subPizzaOrSoup.value}(s) are
 const numberOfFood = parseInt(numberOfFoodString.value)
 
 // Process
-let minute = number | undefined
-let second = number | undefined
+let minute: number | undefined
+let second: number | undefined
 
 if (subPizzaOrSoup.value === "sub") {
   if (numberOfFood === 1) {
