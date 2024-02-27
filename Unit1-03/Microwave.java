@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * This is a standard calculation program.
  */
-final class Index {
+final class Microwave {
 
     /**
      * Number of food, 1.
@@ -83,7 +83,7 @@ final class Index {
     *
     */
 
-    private Index() {
+    private Microwave() {
         throw new IllegalStateException("Cannot be instantiated");
     }
     /**
