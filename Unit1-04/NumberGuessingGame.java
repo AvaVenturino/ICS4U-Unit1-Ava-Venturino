@@ -53,27 +53,27 @@ final class NumberGuessingGame {
             try {
                 final int userNumInt = Integer.parseInt(userNumString);
                 if (userNumInt < 0 || userNumInt > NUMBER6) {
-                    System.out.println("This is not between 0 and 6");
+                    System.out.println("\nThis is not between 0 and 6\n");
                 } else {
                     tries++;
                     if (userNumInt != correctNum) {
                         if (userNumInt < correctNum) {
-                            System.out.println("Your guess is too low.");
+                            System.out.println("\nYour guess is too low.");
                         } else {
-                            System.out.println("Your guess is too high.");
+                            System.out.println("\nYour guess is too high.");
                         }
-                        System.out.println("Please try again.");
+                        System.out.println("Please try again.\n");
                     } else {
-                        System.out.println("You guessed correctly! It took you "
-                                        + tries + " tries. 
-                                        Thank you for playing!");
+                        System.out.println("\nYou guessed correctly! It took you "
+                                        + tries + " tries.");
                         break;
                     }
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("That is not a valid input.");
+            } catch (NumberFormatException numberFormatException) {
+                System.out.println("\nThat is not a valid input.\n");
             }
         }
+	System.out.println("\nDone.");
         scanner.close();
     }
 }
