@@ -1,10 +1,9 @@
 /*
- * This is a program that calculates the amount of energy
- * produced when given the mass.
+ * This program in a number guessing game.
  *
  * @author  Ava Venturino
  * @version 1.0
- * @since   2024-02-20
+ * @since   2024-02-28
  */
 
 import java.util.Scanner;
