@@ -1,9 +1,44 @@
+/*
+ * This program in a number guessing game.
+ *
+ * @author  Ava Venturino
+ * @version 1.0
+ * @since   2024-02-28
+ */
+
 import java.util.Scanner;
 
-public class BoardFootCalculator {
+/**
+ * This is a standard calculation program.
+ */
 
-    public static double calculateBoardFoot(double width, double height) {
-        final double volume = 144; // 1 board foot is 144 cubic inches
+final class BoardFootCalculator {
+    
+    /**
+     * Number, 6.
+     */
+    public static final int NUMBER144 = 144;
+
+    /**
+     * Preven  instantiation.
+     * Throw an exception IllegalStateException.
+     * if this is ever called
+     *
+     * @throws IllegalStateException if this is ever called
+     *
+     */
+
+    private BoardFootCalculator() {
+        throw new IllegalStateException("Cannot be instantiated");
+    }
+    /**
+     * The starting main() function.
+     *
+     * @param args No args will be used
+     */
+
+    final static double calculateBoardFoot(double width, double height) {
+        final double volume = NUMBER144; // 1 board foot is 144 cubic inches
         double length = volume / (width * height); // Calculate length to achieve 1 board foot
         return length;
     }
@@ -24,15 +59,16 @@ public class BoardFootCalculator {
             System.out.println("\nInvalid input. Width and height must be positive numbers.\n");
             return;
         }
-						       //
-						       //                                                                                                                                 // Calculate length using the calculateBoardFoot method
-						       //                                                                                                                                         double length = calculateBoardFoot(width, height);
-						       //
-						       //                                                                                                                                                 // Output
-						       //                                                                                                                                                         System.out.printf("To make exactly 1 board foot of wood, the length should be %.1f inches.%n", length);
-						       //                                                                                                                                                                 System.out.println("\nDone.");
-						       //
-						       //                                                                                                                                                                         scanner.close();
-						       //                                                                                                                                                                             }
-						       //                                                                                                                                                                             }
-						       //
+
+        // Calculate length using the calculateBoardFoot method
+	
+        double length = calculateBoardFoot(width, height);
+
+        // Output
+
+	System.out.printf("To make exactly 1 board foot of wood, the length should be %.1f inches.%n", length);
+        System.out.println("\nDone.");
+
+	scanner.close();
+    }
+}
