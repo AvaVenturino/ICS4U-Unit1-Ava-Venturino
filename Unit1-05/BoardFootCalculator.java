@@ -1,5 +1,5 @@
 /*
- * This program in a number guessing game.
+ * This program calculates the length to create boardfood wood.
  *
  * @author  Ava Venturino
  * @version 1.0
@@ -7,13 +7,13 @@
  */
 
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 /**
  * This is a standard calculation program.
  */
 
 final class BoardFootCalculator {
-    
+
     /**
      * Number, 6.
      */
@@ -31,44 +31,59 @@ final class BoardFootCalculator {
     private BoardFootCalculator() {
         throw new IllegalStateException("Cannot be instantiated");
     }
+
+    /**
+     * The starting calculateBoardFoot() function.
+     *
+     * @param width using width
+     *
+     * @param height using height
+     */
+
+    public static double calculateBoardFoot(double width, double height) {
+        final double volume = NUMBER144;
+        final double length = volume / (width * height);
+        return length;
+    }
+
     /**
      * The starting main() function.
      *
      * @param args No args will be used
      */
 
-    final static double calculateBoardFoot(double width, double height) {
-        final double volume = NUMBER144; // 1 board foot is 144 cubic inches
-        double length = volume / (width * height); // Calculate length to achieve 1 board foot
-        return length;
-    }
+    public static void main(final String[] args) {
+        final Scanner scanner = new Scanner(System.in);
+        try {
+            // Input
+            System.out.print("Enter the width of the piece of wood (in inches): ");
+            final double width = scanner.nextDouble();
+            System.out.print("Enter the height of the piece of wood (in inches): ");
+            final double height = scanner.nextDouble();
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+            // Error checking
 
-        // Input
-        System.out.print("Enter the width of the piece of wood (in inches): ");
-        double width = scanner.nextDouble();
-        System.out.print("Enter the height of the piece of wood (in inches): ");
-	double height = scanner.nextDouble();
+            if (width <= 0 || height <= 0) {
 
-        // Error checking
-
-	if (width <= 0 || height <= 0) {
-				
-            System.out.println("\nInvalid input. Width and height must be positive numbers.\n");
-            return;
-        }
-
-        // Calculate length using the calculateBoardFoot method
+                System.out.println("\nInvalid input.");
+                return;
+            }
 	
-        double length = calculateBoardFoot(width, height);
 
-        // Output
 
-	System.out.printf("To make exactly 1 board foot of wood, the length should be %.1f inches.%n", length);
-        System.out.println("\nDone.");
+            // Calculate length using the calculateBoardFoot method
 
-	scanner.close();
+            final double length = calculateBoardFoot(width, height);
+
+            // Output
+
+            System.out.printf("\nThe length should be %.1f inches.", length);
+            System.out.println("\nDone.");
+
+	} catch (InputMismatchException e) {
+            System.out.println("Invalid input.");
+	} finally {
+                scanner.close();
+	}
     }
 }
