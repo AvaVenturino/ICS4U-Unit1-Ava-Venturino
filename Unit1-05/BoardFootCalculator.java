@@ -6,8 +6,8 @@
  * @since   2024-02-28
  */
 
-import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 /**
  * This is a standard calculation program.
  */
@@ -38,12 +38,13 @@ final class BoardFootCalculator {
      * @param width using width
      *
      * @param height using height
+     *
+     *
      */
 
     public static double calculateBoardFoot(double width, double height) {
         final double volume = NUMBER144;
         final double length = volume / (width * height);
-        return length;
     }
 
     /**
@@ -56,20 +57,18 @@ final class BoardFootCalculator {
         final Scanner scanner = new Scanner(System.in);
         try {
             // Input
-            System.out.print("Enter the width of the piece of wood (in inches): ");
+            System.out.print("Enter the width of the piece of wood: ");
             final double width = scanner.nextDouble();
-            System.out.print("Enter the height of the piece of wood (in inches): ");
+            System.out.print("Enter the height of the piece of wood: ");
             final double height = scanner.nextDouble();
 
             // Error checking
 
             if (width <= 0 || height <= 0) {
 
-                System.out.println("\nInvalid input.");
-                return;
+                System.out.println("\nPlease enter positive numbers.");
+                System.out.println("\nDone.Thanks.");
             }
-	
-
 
             // Calculate length using the calculateBoardFoot method
 
@@ -80,10 +79,11 @@ final class BoardFootCalculator {
             System.out.printf("\nThe length should be %.1f inches.", length);
             System.out.println("\nDone.");
 
-	} catch (InputMismatchException e) {
-            System.out.println("Invalid input.");
-	} finally {
-                scanner.close();
-	}
+        } catch (InputMismatchException inputMismatchException) {
+            System.out.println("\nPlease enter a valid number");
+            System.out.println("\nDone!");
+        } finally {
+            scanner.close();
+        }
     }
 }
