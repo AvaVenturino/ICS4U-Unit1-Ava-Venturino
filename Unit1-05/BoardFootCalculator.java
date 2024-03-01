@@ -39,12 +39,13 @@ final class BoardFootCalculator {
      *
      * @param height using height
      *
-     *
+     * @return addstuff
      */
 
     public static double calculateBoardFoot(double width, double height) {
         final double volume = NUMBER144;
         final double length = volume / (width * height);
+        return length;
     }
 
     /**
@@ -68,6 +69,7 @@ final class BoardFootCalculator {
 
                 System.out.println("\nPlease enter positive numbers.");
                 System.out.println("\nDone.Thanks.");
+                return;
             }
 
             // Calculate length using the calculateBoardFoot method
