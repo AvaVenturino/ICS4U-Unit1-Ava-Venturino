@@ -18,21 +18,22 @@ process.argv.forEach(function (val, index, array) {
 const file = readFileSync(process.argv[2], 'utf8')
 
 const newArray = file.split(/\r?\n/)
+
 // pop last element, since it will be empty (the EOF)
+
 newArray.pop()
 console.log(newArray)
 
 // Define functions to calculate mean, median, and mode
 
-function calculateMean(arr = number()) {
+function calculateMean(arr) {
   let sum = 0
   for (const num of arr) {
     sum += num
   }
   return sum / arr.length
 }
-
-function calculateMedian(arr = number()) {
+function calculateMedian(arr) {
   const sortedArray = arr.slice().sort((a, b) => a - b)
   const length = sortedArray.length
   if (length % 2 === 0) {
@@ -42,8 +43,8 @@ function calculateMedian(arr = number()) {
   }
 }
 
-function calculateMode(arr = number()) {
-  const frequencyMap = { key = number } = {}
+function calculateMode(arr) {
+  const frequencyMap = {}
   let maxFrequency = 0
   for (const num of arr) {
     frequencyMap[num] = (frequencyMap[num] || 0) + 1
@@ -51,8 +52,7 @@ function calculateMode(arr = number()) {
       maxFrequency = frequencyMap[num]
     }
   }
-
-  const modes = number()
+  const modes = []
   for (const num in frequencyMap) {
     if (frequencyMap[num] === maxFrequency) {
       modes.push(parseInt(num))
@@ -60,7 +60,6 @@ function calculateMode(arr = number()) {
   }
   return modes
 }
-
 // Calculate mean, median, and mode
 const mean = calculateMean(newArray.map(Number))
 const median = calculateMedian(newArray.map(Number))
